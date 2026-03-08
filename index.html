@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Orbit Agency">
 
-<!-- TWITTER / X -->
+<!-- TWITTER / X CARD -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://YOUR_DOMAIN.com">
 <meta name="twitter:title" content="Orbit - Instagram's #1 Carousel Agency">
@@ -123,14 +123,14 @@
   a { text-decoration: none; color: inherit; }
   .hero-actions a, .cta-box a, nav > a { display: inline-block; }
 
-  /* NAV */
+  /* ═══ NAV ═══ */
   nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 24px 48px;
+    padding: 20px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -210,7 +210,67 @@
     box-shadow: 0 0 30px rgba(232,121,249,0.3);
   }
 
-  /* HERO */
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    padding: 8px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(7,6,11,0.97);
+    backdrop-filter: blur(30px);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover { color: var(--accent); }
+
+  .mobile-menu .nav-cta {
+    margin-top: 16px;
+    padding: 14px 36px;
+    font-size: 1rem;
+  }
+
+  /* ═══ HERO ═══ */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -286,7 +346,7 @@
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(3.5rem, 9vw, 8.5rem);
+    font-size: clamp(2.8rem, 9vw, 8.5rem);
     line-height: 0.95;
     letter-spacing: -0.04em;
     position: relative;
@@ -303,7 +363,7 @@
   }
 
   .hero-sub {
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-size: clamp(0.95rem, 1.5vw, 1.25rem);
     color: var(--text-dim);
     max-width: 520px;
     line-height: 1.7;
@@ -311,6 +371,7 @@
     position: relative;
     z-index: 2;
     animation: fadeUp 1s ease-out 0.6s both;
+    padding: 0 16px;
   }
 
   .hero-actions {
@@ -320,6 +381,8 @@
     position: relative;
     z-index: 2;
     animation: fadeUp 1s ease-out 0.8s both;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .btn-primary {
@@ -364,10 +427,10 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* TICKER */
+  /* ═══ TICKER ═══ */
   .ticker-wrap {
     overflow: hidden;
-    padding: 20px 0;
+    padding: 16px 0;
     background: var(--surface);
     border-top: 1px solid rgba(167,139,250,0.08);
     border-bottom: 1px solid rgba(167,139,250,0.08);
@@ -403,9 +466,9 @@
 
   @keyframes tickerScroll { to { transform: translateX(-50%); } }
 
-  /* LOGO BAR */
+  /* ═══ LOGO BAR ═══ */
   .logo-bar {
-    padding: 48px 48px;
+    padding: 40px 24px;
     text-align: center;
   }
 
@@ -415,7 +478,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--text-dim);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     opacity: 0.6;
   }
 
@@ -423,14 +486,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 48px;
+    gap: 32px;
     flex-wrap: wrap;
   }
 
   .client-logo {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text);
     opacity: 0.25;
     transition: opacity 0.4s;
@@ -439,8 +502,8 @@
 
   .client-logo:hover { opacity: 0.6; }
 
-  /* SECTIONS */
-  section { padding: 120px 48px; }
+  /* ═══ SECTIONS ═══ */
+  section { padding: 100px 48px; }
 
   .section-label {
     font-family: 'Syne', sans-serif;
@@ -465,7 +528,7 @@
   .section-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-size: clamp(1.8rem, 4.5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     max-width: 700px;
@@ -474,13 +537,13 @@
 
   .section-desc {
     color: var(--text-dim);
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
     line-height: 1.7;
     max-width: 560px;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
   }
 
-  /* SHOWCASE */
+  /* ═══ SHOWCASE ═══ */
   .showcase {
     background: var(--surface);
     position: relative;
@@ -501,15 +564,15 @@
 
   .carousel-track {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     animation: carouselDrift 40s linear infinite;
     width: max-content;
     padding: 20px 0;
   }
 
   .carousel-card {
-    width: 320px;
-    height: 400px;
+    width: 300px;
+    height: 380px;
     border-radius: var(--radius);
     position: relative;
     overflow: hidden;
@@ -538,7 +601,7 @@
   .carousel-card .card-content {
     position: relative;
     z-index: 2;
-    padding: 32px;
+    padding: 28px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -561,7 +624,7 @@
   .card-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
@@ -589,7 +652,7 @@
   }
 
   .card-slides span {
-    width: 32px;
+    width: 28px;
     height: 3px;
     border-radius: 2px;
     background: rgba(255,255,255,0.15);
@@ -599,7 +662,7 @@
 
   @keyframes carouselDrift { to { transform: translateX(-50%); } }
 
-  /* STATS */
+  /* ═══ STATS ═══ */
   .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -607,12 +670,12 @@
     background: rgba(167,139,250,0.06);
     border-radius: var(--radius);
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   .stat {
     background: var(--bg);
-    padding: 48px 36px;
+    padding: 40px 24px;
     text-align: center;
     transition: background 0.3s;
   }
@@ -622,7 +685,7 @@
   .stat-num {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     letter-spacing: -0.03em;
     background: linear-gradient(135deg, var(--accent), var(--accent-hot));
     -webkit-background-clip: text;
@@ -632,12 +695,12 @@
 
   .stat-label {
     color: var(--text-dim);
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     margin-top: 8px;
     font-weight: 500;
   }
 
-  /* SERVICES */
+  /* ═══ SERVICES ═══ */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -649,7 +712,7 @@
 
   .service-card {
     background: var(--surface);
-    padding: 48px 36px;
+    padding: 40px 32px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
@@ -682,22 +745,23 @@
     justify-content: center;
     font-size: 1.5rem;
     margin-bottom: 24px;
+    color: var(--text);
   }
 
   .service-card h3 {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 12px;
   }
 
   .service-card p {
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.65;
   }
 
-  /* PROCESS */
+  /* ═══ PROCESS ═══ */
   .process-section {
     background: var(--surface);
     position: relative;
@@ -765,7 +829,7 @@
     line-height: 1.6;
   }
 
-  /* TESTIMONIALS */
+  /* ═══ TESTIMONIALS ═══ */
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -776,7 +840,7 @@
     background: var(--surface);
     border: 1px solid rgba(167,139,250,0.06);
     border-radius: var(--radius);
-    padding: 40px;
+    padding: 36px;
     transition: all 0.4s;
     position: relative;
   }
@@ -800,9 +864,9 @@
   }
 
   .testimonial p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.7;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     position: relative;
     z-index: 2;
   }
@@ -825,6 +889,7 @@
     font-weight: 800;
     font-size: 0.9rem;
     color: var(--bg);
+    flex-shrink: 0;
   }
 
   .author-name {
@@ -839,7 +904,7 @@
     margin-top: 2px;
   }
 
-  /* CTA */
+  /* ═══ CTA ═══ */
   .cta-section { text-align: center; }
 
   .cta-box {
@@ -864,7 +929,7 @@
   .cta-box h2 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-size: clamp(1.6rem, 4vw, 3.2rem);
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin-bottom: 16px;
@@ -874,7 +939,7 @@
 
   .cta-box p {
     color: var(--text-dim);
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     margin-bottom: 40px;
     position: relative;
     z-index: 2;
@@ -887,7 +952,7 @@
     z-index: 2;
   }
 
-  /* CONTACT */
+  /* ═══ CONTACT ═══ */
   .contact-section { background: var(--surface); }
 
   .contact-grid {
@@ -925,10 +990,10 @@
     background: var(--bg);
     border: 1px solid rgba(167,139,250,0.08);
     border-radius: var(--radius);
-    padding: 40px;
+    padding: 36px;
   }
 
-  .form-group { margin-bottom: 20px; }
+  .form-group { margin-bottom: 18px; }
 
   .form-group label {
     display: block;
@@ -971,7 +1036,7 @@
   }
 
   .form-group select option { background: var(--surface); color: var(--text); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group textarea { resize: vertical; min-height: 90px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   .btn-submit {
@@ -1000,12 +1065,12 @@
     margin-top: 14px;
   }
 
-  /* WHATSAPP */
+  /* ═══ WHATSAPP ═══ */
   .whatsapp-float {
     position: fixed;
     bottom: 28px;
     right: 28px;
-    z-index: 999;
+    z-index: 99;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1045,9 +1110,9 @@
 
   .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
 
-  /* FOOTER */
+  /* ═══ FOOTER ═══ */
   footer {
-    padding: 60px 48px 40px;
+    padding: 48px 48px 36px;
     border-top: 1px solid rgba(167,139,250,0.06);
     display: flex;
     justify-content: space-between;
@@ -1070,11 +1135,15 @@
 
   footer p { color: var(--text-dim); font-size: 0.85rem; }
 
-  .footer-links { display: flex; gap: 28px; }
-  .footer-links a { color: var(--text-dim); font-size: 0.88rem; transition: color 0.3s; }
+  .footer-links a {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    transition: color 0.3s;
+  }
+
   .footer-links a:hover { color: var(--accent); }
 
-  /* REVEAL */
+  /* ═══ REVEAL ═══ */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1086,30 +1155,209 @@
     transform: translateY(0);
   }
 
-  /* RESPONSIVE */
+  /* ═══ RESPONSIVE - TABLET ═══ */
   @media (max-width: 1024px) {
+    section { padding: 80px 32px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
     .process-grid::before { display: none; }
     .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; }
+    .contact-grid { gap: 40px; }
+    .cta-box { padding: 60px 40px; }
   }
 
+  /* ═══ RESPONSIVE - MOBILE ═══ */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+    nav {
+      padding: 16px 20px;
+    }
+
     .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    .process-grid { grid-template-columns: 1fr 1fr; }
-    .hero-actions { flex-direction: column; align-items: center; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-    .logo-bar-logos { gap: 28px; }
-    .client-logo { font-size: 1rem; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .form-row { grid-template-columns: 1fr; }
-    .whatsapp-float { bottom: 20px; right: 20px; width: 54px; height: 54px; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .hero {
+      padding: 100px 20px 60px;
+      min-height: auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      gap: 12px;
+    }
+
+    .btn-primary, .btn-ghost {
+      padding: 14px 32px;
+      font-size: 0.92rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-orbit:nth-child(1) { width: 300px; height: 300px; }
+    .hero-orbit:nth-child(2) { width: 450px; height: 450px; }
+    .hero-orbit:nth-child(3) { width: 600px; height: 600px; }
+
+    .ticker-item {
+      font-size: 0.85rem;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    .logo-bar { padding: 32px 20px; }
+    .logo-bar-logos { gap: 20px; }
+    .client-logo { font-size: 0.85rem; }
+
+    section { padding: 60px 20px; }
+
+    .section-title {
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      margin-bottom: 36px;
+    }
+
+    .carousel-card {
+      width: 260px;
+      height: 340px;
+    }
+
+    .card-title { font-size: 1.2rem; }
+    .carousel-card .card-content { padding: 24px; }
+
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 40px;
+    }
+
+    .stat {
+      padding: 28px 16px;
+    }
+
+    .stat-num {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: 32px 24px;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .step-num {
+      width: 64px;
+      height: 64px;
+      font-size: 1.2rem;
+    }
+
+    .process-step h3 { font-size: 1rem; }
+    .process-step p { font-size: 0.82rem; }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial {
+      padding: 28px;
+    }
+
+    .testimonial::before {
+      font-size: 3.5rem;
+      top: 8px;
+      left: 20px;
+    }
+
+    .cta-box {
+      padding: 48px 24px;
+      border-radius: 24px;
+    }
+
+    .cta-box .btn-primary {
+      padding: 16px 36px;
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .contact-form {
+      padding: 28px 20px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      padding: 36px 20px 28px;
+    }
+
+    .whatsapp-float {
+      bottom: 16px;
+      right: 16px;
+      width: 52px;
+      height: 52px;
+    }
+
+    .whatsapp-float svg { width: 26px; height: 26px; }
     .whatsapp-tooltip { display: none; }
+  }
+
+  /* ═══ RESPONSIVE - SMALL MOBILE ═══ */
+  @media (max-width: 400px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero-sub {
+      font-size: 0.88rem;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+    }
   }
 </style>
 </head>
@@ -1131,7 +1379,24 @@
   <a href="https://calendly.com/theorbitmediawork/30min" target="_blank" rel="noopener">
     <button class="nav-cta">Start a Project</button>
   </a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work" onclick="toggleMenu()">Work</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#testimonials" onclick="toggleMenu()">Voices</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://calendly.com/theorbitmediawork/30min" target="_blank" rel="noopener">
+    <button class="nav-cta">Start a Project</button>
+  </a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1204,159 +1469,26 @@
   </div>
 
   <div class="carousel-track">
-    <div class="carousel-card card-1">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Real Estate Creator</div>
-        <div>
-          <div class="card-title">How I Sold 3 Flats Using Instagram Alone</div>
-          <div class="card-result">🔖 4,200+ Saves</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-2">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Finance Creator</div>
-        <div>
-          <div class="card-title">How I Went From 0 to 50L in 18 Months</div>
-          <div class="card-result">👁 1.2M Reach</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-3">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Agency Owner</div>
-        <div>
-          <div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div>
-          <div class="card-result">📤 860 Shares</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-4">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Fitness Coach</div>
-        <div>
-          <div class="card-title">The Morning Routine That Changed Everything</div>
-          <div class="card-result">🔖 2,100+ Saves</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-5">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Business Coach</div>
-        <div>
-          <div class="card-title">Stop Trading Time for Money - Here's How</div>
-          <div class="card-result">👁 3.8M Reach</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-6">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Fragrance Creator</div>
-        <div>
-          <div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div>
-          <div class="card-result">📤 1,400 Shares</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
+    <div class="carousel-card card-1"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Real Estate Creator</div><div><div class="card-title">How I Sold 3 Flats Using Instagram Alone</div><div class="card-result">🔖 4,200+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-2"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Finance Creator</div><div><div class="card-title">How I Went From 0 to 50L in 18 Months</div><div class="card-result">👁 1.2M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-3"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Agency Owner</div><div><div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div><div class="card-result">📤 860 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-4"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fitness Coach</div><div><div class="card-title">The Morning Routine That Changed Everything</div><div class="card-result">🔖 2,100+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-5"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Business Coach</div><div><div class="card-title">Stop Trading Time for Money - Here's How</div><div class="card-result">👁 3.8M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-6"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fragrance Creator</div><div><div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div><div class="card-result">📤 1,400 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
     <!-- Duplicated for seamless loop -->
-    <div class="carousel-card card-1">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Real Estate Creator</div>
-        <div>
-          <div class="card-title">How I Sold 3 Flats Using Instagram Alone</div>
-          <div class="card-result">🔖 4,200+ Saves</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-2">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Finance Creator</div>
-        <div>
-          <div class="card-title">How I Went From 0 to 50L in 18 Months</div>
-          <div class="card-result">👁 1.2M Reach</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-3">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Agency Owner</div>
-        <div>
-          <div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div>
-          <div class="card-result">📤 860 Shares</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-4">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Fitness Coach</div>
-        <div>
-          <div class="card-title">The Morning Routine That Changed Everything</div>
-          <div class="card-result">🔖 2,100+ Saves</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-5">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Business Coach</div>
-        <div>
-          <div class="card-title">Stop Trading Time for Money - Here's How</div>
-          <div class="card-result">👁 3.8M Reach</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-card card-6">
-      <div class="card-bg"></div>
-      <div class="card-content">
-        <div class="card-tag">Fragrance Creator</div>
-        <div>
-          <div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div>
-          <div class="card-result">📤 1,400 Shares</div>
-          <div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-    </div>
+    <div class="carousel-card card-1"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Real Estate Creator</div><div><div class="card-title">How I Sold 3 Flats Using Instagram Alone</div><div class="card-result">🔖 4,200+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-2"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Finance Creator</div><div><div class="card-title">How I Went From 0 to 50L in 18 Months</div><div class="card-result">👁 1.2M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-3"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Agency Owner</div><div><div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div><div class="card-result">📤 860 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-4"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fitness Coach</div><div><div class="card-title">The Morning Routine That Changed Everything</div><div class="card-result">🔖 2,100+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-5"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Business Coach</div><div><div class="card-title">Stop Trading Time for Money - Here's How</div><div class="card-result">👁 3.8M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+    <div class="carousel-card card-6"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fragrance Creator</div><div><div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div><div class="card-result">📤 1,400 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
   </div>
 
-  <!-- STATS -->
-  <div class="stats reveal" style="max-width: 1100px; margin: 80px auto 0;">
-    <div class="stat">
-      <div class="stat-num">250+</div>
-      <div class="stat-label">Carousels Shipped</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">80M+</div>
-      <div class="stat-label">Impressions Generated</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">12%</div>
-      <div class="stat-label">Avg. Engagement Rate</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">18+</div>
-      <div class="stat-label">Personal Brands Partnered</div>
-    </div>
+  <div class="stats reveal" style="max-width: 1100px; margin: 60px auto 0;">
+    <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Carousels Shipped</div></div>
+    <div class="stat"><div class="stat-num">80M+</div><div class="stat-label">Impressions Generated</div></div>
+    <div class="stat"><div class="stat-num">12%</div><div class="stat-label">Avg. Engagement Rate</div></div>
+    <div class="stat"><div class="stat-num">18+</div><div class="stat-label">Personal Brands Partnered</div></div>
   </div>
 </section>
 
@@ -1367,38 +1499,13 @@
     <h2 class="section-title">Full-stack carousel craft.</h2>
     <p class="section-desc">From hook psychology to slide design - we own the entire carousel pipeline so you don't have to.</p>
   </div>
-
   <div class="services-grid reveal">
-    <div class="service-card">
-      <div class="service-icon">⟳</div>
-      <h3>Carousel Strategy</h3>
-      <p>We reverse-engineer what's working in your niche, then build content pillars and carousel sequences designed for sustained growth.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◈</div>
-      <h3>Slide Design</h3>
-      <p>Thumb-stopping visuals with intentional hierarchy. Every slide earns the swipe with strategic typography, layout, and visual pacing.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">✎</div>
-      <h3>Copywriting & Hooks</h3>
-      <p>We write hooks that interrupt the scroll and narratives that keep readers sliding. Persuasion psychology meets platform-native voice.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚡</div>
-      <h3>Content Calendars</h3>
-      <p>Monthly editorial calendars with carousel topics, formats, and posting schedules mapped to your growth goals and audience behavior.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◉</div>
-      <h3>Personal Brand Identity</h3>
-      <p>Carousel-first visual systems with custom templates, color palettes, and typographic rules that make your content unmistakably yours.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">△</div>
-      <h3>Analytics & Optimization</h3>
-      <p>Deep-dive performance analysis on every carousel. We track saves, shares, completion rates, and feed those insights into the next batch.</p>
-    </div>
+    <div class="service-card"><div class="service-icon">⟳</div><h3>Carousel Strategy</h3><p>We reverse-engineer what's working in your niche, then build content pillars and carousel sequences designed for sustained growth.</p></div>
+    <div class="service-card"><div class="service-icon">◈</div><h3>Slide Design</h3><p>Thumb-stopping visuals with intentional hierarchy. Every slide earns the swipe with strategic typography, layout, and visual pacing.</p></div>
+    <div class="service-card"><div class="service-icon">✎</div><h3>Copywriting & Hooks</h3><p>We write hooks that interrupt the scroll and narratives that keep readers sliding. Persuasion psychology meets platform-native voice.</p></div>
+    <div class="service-card"><div class="service-icon">⬡</div><h3>Content Calendars</h3><p>Monthly editorial calendars with carousel topics, formats, and posting schedules mapped to your growth goals and audience behavior.</p></div>
+    <div class="service-card"><div class="service-icon">◉</div><h3>Personal Brand Identity</h3><p>Carousel-first visual systems with custom templates, color palettes, and typographic rules that make your content unmistakably yours.</p></div>
+    <div class="service-card"><div class="service-icon">△</div><h3>Analytics & Optimization</h3><p>Deep-dive performance analysis on every carousel. We track saves, shares, completion rates, and feed those insights into the next batch.</p></div>
   </div>
 </section>
 
@@ -1409,28 +1516,11 @@
     <h2 class="section-title">From brief to viral in 4 steps.</h2>
     <p class="section-desc">A battle-tested system that consistently ships high-performing carousels - on time, every time.</p>
   </div>
-
   <div class="process-grid reveal">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <h3>Discovery</h3>
-      <p>Deep-dive into your personal brand, audience, competitors, and goals. We find the content angles that will cut through the noise.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <h3>Strategy</h3>
-      <p>We build your carousel content map - topics, hooks, formats, and sequences engineered for the algorithm.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <h3>Create</h3>
-      <p>Copy, design, and visual storytelling come together. Every slide is reviewed for scroll-stopping power before delivery.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <h3>Optimize</h3>
-      <p>Post-launch analytics feed back into the system. We double down on what works and refine what doesn't.</p>
-    </div>
+    <div class="process-step"><div class="step-num">01</div><h3>Discovery</h3><p>Deep-dive into your personal brand, audience, competitors, and goals. We find the content angles that cut through the noise.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h3>Strategy</h3><p>We build your carousel content map - topics, hooks, formats, and sequences engineered for the algorithm.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h3>Create</h3><p>Copy, design, and visual storytelling come together. Every slide is reviewed for scroll-stopping power before delivery.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h3>Optimize</h3><p>Post-launch analytics feed back into the system. We double down on what works and refine what doesn't.</p></div>
   </div>
 </section>
 
@@ -1441,37 +1531,18 @@
     <h2 class="section-title">Don't take our word for it.</h2>
     <p class="section-desc">Here's what personal brands say after partnering with Orbit.</p>
   </div>
-
   <div class="testimonials-grid reveal">
     <div class="testimonial">
       <p>Orbit completely transformed my Instagram. My carousels went from 200 saves to 4,000+ within the first month. The ROI is insane.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">AK</div>
-        <div>
-          <div class="author-name">Arjun K.</div>
-          <div class="author-role">Real Estate Creator</div>
-        </div>
-      </div>
+      <div class="testimonial-author"><div class="author-avatar">AK</div><div><div class="author-name">Arjun K.</div><div class="author-role">Real Estate Creator</div></div></div>
     </div>
     <div class="testimonial">
       <p>They don't just design pretty slides - they think like strategists. Every carousel has a purpose and it shows in the numbers.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">NR</div>
-        <div>
-          <div class="author-name">Neha R.</div>
-          <div class="author-role">Finance Creator</div>
-        </div>
-      </div>
+      <div class="testimonial-author"><div class="author-avatar">NR</div><div><div class="author-name">Neha R.</div><div class="author-role">Finance Creator</div></div></div>
     </div>
     <div class="testimonial">
       <p>Working with Orbit felt like adding a full content team. Strategy, copy, design - all handled. I just approve and post.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">VS</div>
-        <div>
-          <div class="author-name">Vikram S.</div>
-          <div class="author-role">Business Coach, 500K+ Followers</div>
-        </div>
-      </div>
+      <div class="testimonial-author"><div class="author-avatar">VS</div><div><div class="author-name">Vikram S.</div><div class="author-role">Business Coach, 500K+ Followers</div></div></div>
     </div>
   </div>
 </section>
@@ -1494,79 +1565,40 @@
     <h2 class="section-title">Let's build carousels<br>that actually convert.</h2>
     <p class="section-desc">Drop your details below and we'll get back within 24 hours with a free content audit.</p>
   </div>
-
   <div class="contact-grid reveal">
     <div class="contact-info-block">
       <h3>What happens next?</h3>
       <p>We review your Instagram and personal brand, then hop on a 15-min discovery call to understand your goals. No pitch, just value.</p>
-
       <h3>Email us directly</h3>
       <p><a href="mailto:theorbitmediawork@gmail.com">theorbitmediawork@gmail.com</a></p>
-
       <h3>WhatsApp us</h3>
       <p><a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I'm%20interested%20in%20carousel%20services." target="_blank" rel="noopener">+91 83607-45276</a></p>
-
       <h3>Working hours</h3>
       <p>Monday - Saturday, 10AM - 7PM IST</p>
-
       <h3>Follow us</h3>
-      <p>
-        <a href="https://www.instagram.com/theorbitmedia/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">Instagram</a>
-      </p>
+      <p><a href="https://www.instagram.com/theorbitmedia/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">Instagram</a></p>
     </div>
-
     <div class="contact-form" id="lead-form">
       <div class="form-row">
-        <div class="form-group">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" name="name" placeholder="John Doe" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">WhatsApp Number *</label>
-          <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
-        </div>
+        <div class="form-group"><label for="name">Your Name *</label><input type="text" id="name" name="name" placeholder="John Doe" required></div>
+        <div class="form-group"><label for="phone">WhatsApp Number *</label><input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required></div>
       </div>
-      <div class="form-group">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" placeholder="you@brand.com" required>
+      <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="you@brand.com" required></div>
+      <div class="form-group"><label for="instagram">Instagram Handle</label><input type="text" id="instagram" name="instagram" placeholder="@yourbrand"></div>
+      <div class="form-group"><label for="service">What do you need?</label>
+        <select id="service" name="service"><option value="" disabled selected>Select a service</option><option value="Carousel Design">Carousel Design</option><option value="Carousel Strategy">Carousel Strategy</option><option value="Full Content">Full Content</option><option value="Brand Identity">Brand Identity</option><option value="Other">Other</option></select>
       </div>
-      <div class="form-group">
-        <label for="instagram">Instagram Handle</label>
-        <input type="text" id="instagram" name="instagram" placeholder="@yourbrand">
+      <div class="form-group"><label for="budget">Monthly Budget Range</label>
+        <select id="budget" name="budget"><option value="" disabled selected>Select range</option><option value="10K-25K">10K - 25K</option><option value="25K-50K">25K - 50K</option><option value="50K-1L">50K - 1L</option><option value="1L+">1L+</option><option value="Not sure">Not sure yet</option></select>
       </div>
-      <div class="form-group">
-        <label for="service">What do you need?</label>
-        <select id="service" name="service">
-          <option value="" disabled selected>Select a service</option>
-          <option value="Carousel Design">Carousel Design</option>
-          <option value="Carousel Strategy">Carousel Strategy</option>
-          <option value="Full Content">Full Content</option>
-          <option value="Brand Identity">Brand Identity</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="budget">Monthly Budget Range</label>
-        <select id="budget" name="budget">
-          <option value="" disabled selected>Select range</option>
-          <option value="10K-25K">10K - 25K</option>
-          <option value="25K-50K">25K - 50K</option>
-          <option value="50K-1L">50K - 1L</option>
-          <option value="1L+">1L+</option>
-          <option value="Not sure">Not sure yet</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="message">Tell us about your personal brand</label>
-        <textarea id="message" name="message" placeholder="What's your niche? What are your goals?"></textarea>
-      </div>
+      <div class="form-group"><label for="message">Tell us about your personal brand</label><textarea id="message" name="message" placeholder="What's your niche? What are your goals?"></textarea></div>
       <button type="button" class="btn-submit" onclick="submitLeadForm()">Send Enquiry</button>
       <p class="form-note">Free consultation - No commitment - Reply within 24hrs</p>
     </div>
   </div>
 </section>
 
-<!-- WHATSAPP FLOATING BUTTON -->
+<!-- WHATSAPP -->
 <a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I'm%20interested%20in%20carousel%20services." target="_blank" rel="noopener" class="whatsapp-float" onclick="trackEvent('WhatsApp_Click')">
   <span class="whatsapp-tooltip">Chat with us!</span>
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1586,29 +1618,36 @@
 
 <!-- SCRIPTS -->
 <script>
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.querySelector('.hamburger').classList.toggle('active');
+    document.getElementById('mobileMenu').classList.toggle('active');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Hero parallax
-  document.addEventListener('mousemove', (e) => {
-    const orbits = document.querySelectorAll('.hero-orbit');
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    orbits.forEach((orbit, i) => {
-      const factor = (i + 1) * 0.3;
-      orbit.style.transform = `translate(calc(-50% + ${x * factor}px), calc(-50% + ${y * factor}px))`;
+  // Hero parallax (desktop only)
+  if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+      const orbits = document.querySelectorAll('.hero-orbit');
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      orbits.forEach((orbit, i) => {
+        const factor = (i + 1) * 0.3;
+        orbit.style.transform = `translate(calc(-50% + ${x * factor}px), calc(-50% + ${y * factor}px))`;
+      });
     });
-  });
+  }
 
-  // Event tracking (fires to Meta Pixel + GA4 when active)
+  // Event tracking
   function trackEvent(eventName, params = {}) {
     if (typeof fbq !== 'undefined') fbq('track', eventName, params);
     if (typeof gtag !== 'undefined') gtag('event', eventName, params);
@@ -1625,27 +1664,15 @@
     const budget = document.getElementById('budget').value;
     const message = document.getElementById('message').value.trim();
 
-    if (!name || !phone || !email) {
-      alert('Please fill in your name, phone, and email.');
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
+    if (!name || !phone || !email) { alert('Please fill in your name, phone, and email.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
 
     btn.textContent = 'Sending...';
     btn.style.opacity = '0.7';
     btn.disabled = true;
 
-    trackEvent('Lead', {
-      content_name: service || 'general',
-      value: budget || 'not-specified',
-      currency: 'INR'
-    });
+    trackEvent('Lead', { content_name: service || 'general', value: budget || 'not-specified', currency: 'INR' });
 
-    // Submit to Google Forms - Google Sheets
     const formData = new FormData();
     formData.append('entry.430783780', name);
     formData.append('entry.976531119', phone);
@@ -1668,14 +1695,12 @@
   }
 
   function showSuccess() {
-    document.getElementById('lead-form').innerHTML = '<div style="text-align:center; padding: 60px 20px;"><div style="font-size: 3rem; margin-bottom: 16px;">🎯</div><h3 style="font-family: Syne, sans-serif; font-weight: 800; font-size: 1.6rem; margin-bottom: 12px;">We got your details!</h3><p style="color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">Our team will reach out within 24 hours.<br>Want to skip the wait?</p><a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I%20just%20submitted%20a%20form%20on%20your%20website." target="_blank" rel="noopener" style="display:inline-block; padding: 14px 32px; background: #25D366; color: white; border-radius: 100px; font-family: Syne, sans-serif; font-weight: 700; font-size: 0.95rem;">Chat on WhatsApp</a></div>';
+    document.getElementById('lead-form').innerHTML = '<div style="text-align:center; padding: 48px 16px;"><div style="font-size: 3rem; margin-bottom: 16px;">🎯</div><h3 style="font-family: Syne, sans-serif; font-weight: 800; font-size: 1.4rem; margin-bottom: 12px;">We got your details!</h3><p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">Our team will reach out within 24 hours.<br>Want to skip the wait?</p><a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I%20just%20submitted%20a%20form%20on%20your%20website." target="_blank" rel="noopener" style="display:inline-block; padding: 14px 32px; background: #25D366; color: white; border-radius: 100px; font-family: Syne, sans-serif; font-weight: 700; font-size: 0.92rem;">Chat on WhatsApp</a></div>';
   }
 
   // Track CTA clicks
   document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
-    btn.addEventListener('click', () => {
-      trackEvent('InitiateCheckout', { content_name: 'Book Call CTA' });
-    });
+    btn.addEventListener('click', () => trackEvent('InitiateCheckout', { content_name: 'Book Call CTA' }));
   });
 
   // Track scroll depth
@@ -1683,10 +1708,7 @@
   window.addEventListener('scroll', () => {
     const depth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
     [25, 50, 75, 100].forEach(m => {
-      if (depth >= m && !scrollTracked[m]) {
-        scrollTracked[m] = true;
-        trackEvent('ScrollDepth', { percent: m });
-      }
+      if (depth >= m && !scrollTracked[m]) { scrollTracked[m] = true; trackEvent('ScrollDepth', { percent: m }); }
     });
   });
 </script>
