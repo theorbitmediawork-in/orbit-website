@@ -90,7 +90,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg); overflow-x: hidden; }
+html { scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg); overflow-x: hidden; }
 
 body { font-family: 'General Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; width: 100%; max-width: 100vw; }
 
@@ -624,7 +624,7 @@ footer p { color: var(--text-dim); font-size: 0.85rem; }
       <h3>What happens next?</h3>
       <p>We review your Instagram and personal brand, then hop on a 15-min discovery call to understand your goals. No pitch, just value.</p>
       <h3>Email us directly</h3>
-      <p><a href="mailto:theorbitmediawork@gmail.com">theorbitmediawork@gmail.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#d6a2beb3b9a4b4bfa2bbb3b2bfb7a1b9a4bd96b1bbb7bfbaf8b5b9bb"><span class="__cf_email__" data-cfemail="8df9e5e8e2ffefe4f9e0e8e9e4ecfae2ffe6cdeae0ece4e1a3eee2e0">[email&#160;protected]</span></a></p>
       <h3>WhatsApp us</h3>
       <p><a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I'm%20interested%20in%20carousel%20services." target="_blank" rel="noopener">+91 83607-45276</a></p>
       <h3>Working hours</h3>
@@ -670,10 +670,28 @@ footer p { color: var(--text-dim); font-size: 0.85rem; }
   </div>
 </footer>
 
-<script>
-  // Force scroll to top
-  window.addEventListener('load', () => { window.scrollTo(0, 0); });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // FORCE SCROLL TO TOP - prevent auto-scroll to bottom
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  });
+  
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    // Enable smooth scroll AFTER page is fully loaded and scrolled to top
+    setTimeout(() => {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }, 500);
+  });
 
   // Enable reveal animations only when JS works
   document.body.classList.add('js-ready');
@@ -757,10 +775,4 @@ footer p { color: var(--text-dim); font-size: 0.85rem; }
   // Track scroll depth
   let scrollTracked = {};
   window.addEventListener('scroll', () => {
-    const depth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    [25, 50, 75, 100].forEach(m => { if (depth >= m && !scrollTracked[m]) { scrollTracked[m] = true; trackEvent('ScrollDepth', { percent: m }); } });
-  });
-</script>
-
-</body>
-</html>
+    const depth = Math.round(
