@@ -125,32 +125,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:fl
 
 /* SECTIONS */
 section{padding:100px 48px;overflow:hidden;width:100%}
+.showcase{padding:100px 0 0!important}
 .section-label{font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .section-label::before{content:'';width:24px;height:2px;background:var(--accent)}
 .section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4.5vw,4rem);line-height:1.05;letter-spacing:-.03em;max-width:700px;margin-bottom:24px}
 .section-desc{color:var(--text-dim);font-size:clamp(.95rem,1.2vw,1.1rem);line-height:1.7;max-width:560px;margin-bottom:48px}
 
 /* SHOWCASE */
-.showcase{background:var(--surface);position:relative;overflow:hidden;width:100%;max-width:100vw}
-.showcase::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(167,139,250,.08) 0%,transparent 70%);pointer-events:none}
-.carousel-track{display:flex;gap:20px;animation:carouselDrift 40s linear infinite;width:max-content;padding:20px 0}
-.carousel-card{width:300px;height:380px;border-radius:var(--radius);position:relative;overflow:hidden;flex-shrink:0;transition:transform .5s cubic-bezier(.16,1,.3,1);cursor:pointer}
-.carousel-card:hover{transform:scale(1.04) translateY(-8px)}
-.carousel-card .card-bg{position:absolute;inset:0;border-radius:var(--radius)}
-.card-1 .card-bg{background:linear-gradient(160deg,#1a1035,#2d1b69,#1a1035)}
-.card-2 .card-bg{background:linear-gradient(160deg,#0f1729,#1b2d5e,#0f1729)}
-.card-3 .card-bg{background:linear-gradient(160deg,#1f0a2e,#4a1942,#1f0a2e)}
-.card-4 .card-bg{background:linear-gradient(160deg,#0d1a17,#1a4a3a,#0d1a17)}
-.card-5 .card-bg{background:linear-gradient(160deg,#1a1000,#4a3200,#1a1000)}
-.card-6 .card-bg{background:linear-gradient(160deg,#1a0510,#4a1030,#1a0510)}
-.carousel-card .card-content{position:relative;z-index:2;padding:28px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
-.card-tag{display:inline-flex;padding:6px 14px;border-radius:100px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;width:fit-content;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
-.card-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;line-height:1.15;letter-spacing:-.02em}
-.card-result{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.25);border-radius:100px;font-family:'Syne',sans-serif;font-weight:700;font-size:.72rem;color:var(--accent);margin-top:10px;backdrop-filter:blur(8px)}
-.card-slides{display:flex;gap:6px;margin-top:12px}
-.card-slides span{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.15)}
-.card-slides span:first-child{background:var(--accent)}
-@keyframes carouselDrift{to{transform:translateX(-50%)}}
+.showcase{background:var(--surface);position:relative;overflow:hidden;width:100%;max-width:100vw;padding-bottom:80px}
+.showcase::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(circle,rgba(167,139,250,.07) 0%,transparent 70%);pointer-events:none}
+.showcase-inner{padding:0 48px}
+
+/* MARQUEE TRACK */
+.marquee-wrap{overflow:hidden;width:100%;position:relative;mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%)}
+.marquee-track{display:flex;gap:24px;width:max-content;padding:20px 0;animation:marqueeScroll 35s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+
+/* WORK CARD */
+.work-card{width:260px;height:340px;border-radius:20px;flex-shrink:0;position:relative;overflow:hidden;cursor:pointer;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s cubic-bezier(.16,1,.3,1)}
+.work-card:hover{transform:scale(1.05) translateY(-10px);box-shadow:0 32px 64px rgba(0,0,0,.5),0 0 0 1px rgba(167,139,250,.15)}
+.work-card img{width:100%;height:100%;object-fit:cover;display:block;border-radius:20px;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.work-card:hover img{transform:scale(1.06)}
+.work-card-overlay{position:absolute;inset:0;border-radius:20px;background:linear-gradient(to top,rgba(7,6,11,.92) 0%,rgba(7,6,11,.3) 50%,transparent 100%);opacity:0;transition:opacity .4s}
+.work-card:hover .work-card-overlay{opacity:1}
+.work-card-meta{position:absolute;bottom:0;left:0;right:0;padding:20px 18px;transform:translateY(8px);opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.work-card:hover .work-card-meta{transform:translateY(0);opacity:1}
+.work-card-niche{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:5px}
+.work-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;line-height:1.3;color:var(--text)}
+
+/* INSTAGRAM ASPECT RATIO BADGE */
+.work-card-badge{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:8px;background:rgba(7,6,11,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s}
+.work-card:hover .work-card-badge{opacity:1}
+.work-card-badge svg{width:14px;height:14px;fill:var(--text-dim)}
+
+@keyframes marqueeScroll{to{transform:translateX(-50%)}}
 
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(167,139,250,.06);border-radius:var(--radius);overflow:hidden;margin-top:60px}
@@ -274,13 +282,10 @@ section{padding:50px 16px}
 .section-label::before{width:16px}
 .section-title{font-size:clamp(1.4rem,6vw,2rem);margin-bottom:16px}
 .section-desc{font-size:.85rem;margin-bottom:28px}
-.carousel-card{width:230px;height:310px}
-.card-title{font-size:1.05rem}
-.card-tag{font-size:.6rem;padding:4px 10px}
-.card-result{font-size:.6rem;padding:4px 10px}
-.carousel-card .card-content{padding:18px}
-.card-slides span{width:18px;height:2px}
-.carousel-track{gap:14px}
+.work-card{width:190px;height:260px}
+.marquee-wrap{mask-image:linear-gradient(to right,transparent 0%,black 4%,black 96%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 4%,black 96%,transparent 100%)}
+.marquee-track{gap:14px}
+.showcase-inner{padding:0 16px}
 .stats{grid-template-columns:repeat(2,1fr);margin-top:32px;border-radius:14px}
 .stat{padding:20px 10px}
 .stat-num{font-size:1.7rem}
@@ -329,8 +334,7 @@ footer p{font-size:.75rem}
 .hero-badge{font-size:.58rem;padding:5px 12px}
 .process-grid{grid-template-columns:1fr;gap:24px}
 .stat-num{font-size:1.5rem}
-.carousel-card{width:200px;height:280px}
-.card-title{font-size:.95rem}
+.work-card{width:160px;height:220px}
 .section-title{font-size:1.3rem}
 .cta-box h2{font-size:1.2rem}
 .logo-bar-logos{gap:10px}
@@ -414,24 +418,88 @@ footer p{font-size:.75rem}
 </div>
 
 <section class="showcase" id="work">
-  <div class="reveal">
+  <div class="reveal showcase-inner">
     <span class="section-label">Selected Work</span>
     <h2 class="section-title">Carousels that broke the algorithm.</h2>
     <p class="section-desc">Every slide is engineered to earn the swipe. Every sequence is built to convert attention into action.</p>
   </div>
-  <div class="carousel-track">
-    <div class="carousel-card card-1"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Real Estate Creator</div><div><div class="card-title">How I Sold 3 Flats Using Instagram Alone</div><div class="card-result">🔖 4,200+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-2"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Finance Creator</div><div><div class="card-title">How I Went From 0 to 50L in 18 Months</div><div class="card-result">👁 1.2M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-3"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Agency Owner</div><div><div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div><div class="card-result">📤 860 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-4"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fitness Coach</div><div><div class="card-title">The Morning Routine That Changed Everything</div><div class="card-result">🔖 2,100+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-5"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Business Coach</div><div><div class="card-title">Stop Trading Time for Money - Here's How</div><div class="card-result">👁 3.8M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-6"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fragrance Creator</div><div><div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div><div class="card-result">📤 1,400 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-1"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Real Estate Creator</div><div><div class="card-title">How I Sold 3 Flats Using Instagram Alone</div><div class="card-result">🔖 4,200+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-2"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Finance Creator</div><div><div class="card-title">How I Went From 0 to 50L in 18 Months</div><div class="card-result">👁 1.2M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-3"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Agency Owner</div><div><div class="card-title">5 Client Red Flags I Wish I Knew Earlier</div><div class="card-result">📤 860 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-4"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fitness Coach</div><div><div class="card-title">The Morning Routine That Changed Everything</div><div class="card-result">🔖 2,100+ Saves</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-5"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Business Coach</div><div><div class="card-title">Stop Trading Time for Money - Here's How</div><div class="card-result">👁 3.8M Reach</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
-    <div class="carousel-card card-6"><div class="card-bg"></div><div class="card-content"><div class="card-tag">Fragrance Creator</div><div><div class="card-title">The 200 Rs Perfume That Smells Like 5,000</div><div class="card-result">📤 1,400 Shares</div><div class="card-slides"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- ROW 1: your 6 real covers -->
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162784/Artboard_1_utkzjh.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162749/1_q1xd9y.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162725/s1_tmmima.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162702/Slide_1_m9ilpy.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162660/1.0_uqozyr.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162645/1_v2_prhofq.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <!-- DUPLICATE for seamless loop -->
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162784/Artboard_1_utkzjh.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162749/1_q1xd9y.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162725/s1_tmmima.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162702/Slide_1_m9ilpy.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162660/1.0_uqozyr.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+      <div class="work-card">
+        <img src="https://res.cloudinary.com/dwlpccr2m/image/upload/v1774162645/1_v2_prhofq.png" alt="Carousel cover" loading="lazy">
+        <div class="work-card-overlay"></div>
+        <div class="work-card-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+        <div class="work-card-meta"><div class="work-card-niche">Orbit Work</div><div class="work-card-title">Scroll-stopping carousel cover</div></div>
+      </div>
+    </div>
   </div>
   <div class="stats reveal" style="max-width:1100px;margin:60px auto 0">
     <div class="stat"><div class="stat-num">250+</div><div class="stat-label">Carousels Shipped</div></div>
@@ -512,7 +580,7 @@ footer p{font-size:.75rem}
       <h3>What happens next?</h3>
       <p>We review your Instagram and personal brand, then hop on a 15-min discovery call to understand your goals. No pitch, just value.</p>
       <h3>Email us directly</h3>
-      <p><a href="mailto:theorbitmediawork@gmail.com">theorbitmediawork@gmail.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#88fce0ede7faeae1fce5edece1e9ffe7fae3c8efe5e9e1e4a6ebe7e5"><span class="__cf_email__" data-cfemail="186c707d776a7a716c757d7c71796f776a73587f75797174367b7775">[email&#160;protected]</span></a></p>
       <h3>WhatsApp us</h3>
       <p><a href="https://wa.me/918360745276?text=Hey%20Orbit!%20I'm%20interested%20in%20carousel%20services." target="_blank" rel="noopener">+91 83607-45276</a></p>
       <h3>Working hours</h3>
@@ -551,7 +619,7 @@ footer p{font-size:.75rem}
   <div class="footer-links"><a href="https://www.instagram.com/theorbitmedia/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">Instagram</a></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // PREVENT AUTO-SCROLL
 if('scrollRestoration' in history){history.scrollRestoration='manual'}
 window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;
@@ -656,10 +724,4 @@ document.querySelectorAll('.btn-primary,.nav-cta').forEach(function(btn){
 // TRACK SCROLL DEPTH
 var scrollTracked={};
 window.addEventListener('scroll',function(){
-  var depth=Math.round((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100);
-  [25,50,75,100].forEach(function(m){if(depth>=m&&!scrollTracked[m]){scrollTracked[m]=true;trackEvent('ScrollDepth',{percent:m})}});
-});
-</script>
-
-</body>
-</html>
+  va
